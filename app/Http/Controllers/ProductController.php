@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 //use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -14,9 +15,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        return ProductResource::collection(Product::all());
+        return ProductResource::collection(Product::filter($request)->get());
     }
 
 //    /**
@@ -44,11 +45,11 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return ProductResource
      */
     public function show(Product $product)
     {
-        //
+        return new ProductResource($product);
     }
 
 //    /**

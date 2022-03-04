@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Filters\ProductFilter;
 
 class Product extends Model
 {
@@ -17,6 +19,11 @@ class Product extends Model
     protected $hidden = [
         'updated_at',
     ];
+
+    public function scopeFilter(Builder $builder, $request)
+    {
+        return (new ProductFilter($request))->filter($builder);
+    }
 
     public function author(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
