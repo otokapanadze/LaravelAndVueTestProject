@@ -7,14 +7,18 @@ const router = createRouter({
     routes: routes
 });
 
-const protectedRoutes = [];
-
-router.beforeEach((to, from, next) => {
-    if (protectedRoutes.includes(to.path)) {
-        if (store.state.auth.getters.authenticated) {
+router.beforeEach( (to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (store.state.auth.authenticated) {
             next();
-        } else {
-            next('/Login')
+        }else{
+            next('/login');
+        }
+    } else if (to.matched.some(record => record.meta.hideForAuth)) {
+        if (store.state.auth.authenticated) {
+            next('/');
+        }else{
+            next();
         }
     } else {
         next();

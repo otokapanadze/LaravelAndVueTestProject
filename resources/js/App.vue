@@ -7,20 +7,24 @@
 
 <script>
 import Navigation from './Components/Navigation.vue';
-import {mapActions} from "vuex";
+import {mapState} from "vuex";
 
 export default {
     name: 'app',
     components: {
-        Navigation
+        Navigation,
     },
-    methods: {
-        ...mapActions('auth', [
-            'getUser'
-        ])
+    computed: {
+        ...mapState({
+            authenticated: state => state.auth.authenticated,
+        }),
     },
-    mounted() {
-        this.getUser();
-    }
+    watch: {
+        authenticated(value) {
+            if (!value) {
+                this.$router.push('/login');
+            }
+        }
+    },
 };
 </script>

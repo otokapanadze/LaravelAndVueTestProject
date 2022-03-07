@@ -1,7 +1,9 @@
 <template>
-    <div class="Home">
-        Welcome
-        <div v-text="user.name"></div>
+    <div class="Home flex justify-center items-center pt-10">
+        <div>
+            <span>Welcome</span>
+            <span class="ml-1" v-text="user?.name"></span>
+        </div>
     </div>
 </template>
 

@@ -25,7 +25,6 @@ export function login({ commit }, credentials) {
                 .then(() => {
                     axios.get('api/user')
                         .then(response => {
-                            console.log('user',response.data)
                             commit(SET_USER, response.data);
                             commit(SET_AUTHENTICATED, true);
                             commit(SET_LOADING, false);

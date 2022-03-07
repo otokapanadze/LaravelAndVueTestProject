@@ -2,11 +2,8 @@ import {authenticated} from "./getters";
 
 /** @var { AuthmoduleState } */
 const STATE = {
-    user: {
-        nme: '',
-        email: '',
-    },
-    authenticated: false,
+    user: window.User,
+    authenticated: window.User !== null,
     errors: '',
     loading: false,
 };

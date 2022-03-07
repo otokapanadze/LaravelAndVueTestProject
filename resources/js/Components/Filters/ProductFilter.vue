@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-violet-500 rounded-lg p-3">
         Author:
         <select @change="filter()" name="authors" v-model="author">
             <option value="">None</option>

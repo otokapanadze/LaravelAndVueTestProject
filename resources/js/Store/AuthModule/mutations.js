@@ -1,4 +1,4 @@
-import { SET_USER,SET_LOADING,SET_AUTHENTICATED } from './mutation-types';
+import {SET_USER, SET_LOADING, SET_AUTHENTICATED, SET_ERRORS} from './mutation-types';
 
 export default {
     /**
@@ -17,6 +17,15 @@ export default {
      */
     [SET_LOADING](state, loadingState) {
         state.loading = loadingState;
+    },
+
+    /**
+     *
+     * @param { AuthmoduleState } state
+     * @param { string } errors
+     */
+    [SET_ERRORS](state, errors) {
+        state.errors = errors;
     },
 
     /**

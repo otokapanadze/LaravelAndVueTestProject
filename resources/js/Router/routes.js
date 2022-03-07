@@ -10,17 +10,16 @@ const routes = [
         path: '/login',
         component: () => import('../views/Auth/Login.vue'),
         name: 'login',
+        meta: {
+            hideForAuth: true,
+        }
     },
     {
         path: '/products',
         component: () => import('../views/Product/Products.vue'),
         name: 'products',
-        beforeEnter: (to, from, next) => {
-            if (store.state.auth.authenticated) {
-                next();
-            } else {
-                next('/login');
-            }
+        meta: {
+            requiresAuth: true,
         },
     },
     {
