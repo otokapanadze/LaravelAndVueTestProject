@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAuthorRequest;
 //use App\Http\Requests\UpdateAuthorRequest;
+use App\Http\Resources\AuthorResource;
 use App\Models\Author;
 
 class AuthorController extends Controller
 {
-//    /**
-//     * Display a listing of the resource.
-//     *
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function index()
-//    {
-//        //
-//    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index()
+    {
+        return AuthorResource::collection(Author::all());
+    }
 //
 //    /**
 //     * Show the form for creating a new resource.
