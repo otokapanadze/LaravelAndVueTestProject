@@ -20,3 +20,4 @@ yarn-error.log
 /public/js/app.min.js.map
 /public/css/app.css
 /public/css/app.css.map
+.vercel
