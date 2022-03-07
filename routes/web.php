@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login', function () {
+    return view('welcome');
+});
+Route::get('/user', function () {
+    return view('welcome');
+});
 
 Route::get('/products', function () {
     return view('welcome');
@@ -24,3 +30,5 @@ Route::get('/products', function () {
 Route::get('/products/{product}', function () {
     return view('welcome');
 });
+
+Auth::routes();
