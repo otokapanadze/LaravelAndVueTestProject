@@ -1,14 +1,12 @@
-import store from "../Store";
-
 const routes = [
     {
         path: '/',
-        component: () => import('../views/Home.vue'),
+        component: () => import('../Views/Home.vue'),
         name: 'home',
     },
     {
         path: '/login',
-        component: () => import('../views/Auth/Login.vue'),
+        component: () => import('../Views/Auth/Login.vue'),
         name: 'login',
         meta: {
             hideForAuth: true,
@@ -16,7 +14,7 @@ const routes = [
     },
     {
         path: '/products',
-        component: () => import('../views/Product/Products.vue'),
+        component: () => import('../Views/Product/Products.vue'),
         name: 'products',
         meta: {
             requiresAuth: true,
@@ -24,7 +22,7 @@ const routes = [
     },
     {
         path: '/products/:id',
-        component: () => import('../views/Product/ShowProduct.vue'),
+        component: () => import('../Views/Product/ShowProduct.vue'),
         name: 'products-show',
     }
 ]
