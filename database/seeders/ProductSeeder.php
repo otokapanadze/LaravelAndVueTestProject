@@ -19,6 +19,7 @@ class ProductSeeder extends Seeder
         Author::all()->each(function (Author $author) {
             Product::factory(5)->create([
                 'author_id' => $author->id,
+                'created_at' => now()->subDays(random_int(1, 100)),
             ]);
         });
     }
