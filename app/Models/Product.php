@@ -20,6 +20,8 @@ class Product extends Model
         'updated_at',
     ];
 
+    protected $with = ['author'];
+
     public function scopeFilter(Builder $builder, $request)
     {
         return (new ProductFilter($request))->filter($builder);
